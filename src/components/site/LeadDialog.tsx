@@ -86,7 +86,7 @@ const COPY: Record<
 
 export function LeadDialogProvider({ children }: { children: React.ReactNode }) {
   const [kind, setKind] = useState<LeadKind | null>(null);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [mode, setMode] = useState<"classroom" | "online">("classroom");
 
   const open = useCallback((next: LeadKind) => {
@@ -108,9 +108,10 @@ export function LeadDialogProvider({ children }: { children: React.ReactNode }) 
     });
 
     if (!parsed.success) {
-      const next: Record<string, string> = {};
+      const next: { name?: string; phone?: string } = {};
       for (const issue of parsed.error.issues) {
-        next[String(issue.path[0])] = issue.message;
+        const key = String(issue.path[0]);
+        if (key === "name" || key === "phone") next[key] = issue.message;
       }
       setErrors(next);
       return;
