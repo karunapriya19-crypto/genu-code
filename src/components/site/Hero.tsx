@@ -15,10 +15,6 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden py-16 md:py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 size-[38rem] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]"
-      />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="space-y-6 lg:col-span-7">
           <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">

@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Calculators } from "@/components/site/Calculators";
+import { ChartSimulator } from "@/components/site/ChartSimulator";
+import { Contact } from "@/components/site/Contact";
+import { Courses } from "@/components/site/Courses";
+import { Hero } from "@/components/site/Hero";
+import { LeadDialogProvider } from "@/components/site/LeadDialog";
+import { Mentor } from "@/components/site/Mentor";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { Testimonials } from "@/components/site/Testimonials";
+import { TickerBar } from "@/components/site/TickerBar";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Trading Zone Vellore | Stock Market Training Academy" },
+      {
+        name: "description",
+        content:
+          "Stock market training in Vellore with classroom and online programs covering price action, options, swing trading, and risk management.",
+      },
+      { property: "og:title", content: "Trading Zone Vellore | Stock Market Training Academy" },
+      {
+        property: "og:description",
+        content:
+          "Explore Trading Zone Vellore courses, teaching tools, calculators, and verified contact details.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <LeadDialogProvider>
+      <SiteHeader />
+      <main>
+        <TickerBar />
+        <Hero />
+        <Mentor />
+        <Courses />
+        <ChartSimulator />
+        <Calculators />
+        <Testimonials />
+        <Contact />
+      </main>
+      <SiteFooter />
+    </LeadDialogProvider>
   );
 }

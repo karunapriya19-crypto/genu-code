@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Clock3, ExternalLink, MapPin, MessageCircle, Phone, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -101,7 +102,7 @@ function ContactRow({
 }: {
   icon: typeof MapPin;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div className="surface-panel flex items-start gap-4 rounded-xl p-4">
