@@ -11,3 +11,4 @@
 
 - Keep the supplied Three.js market ornament in a client effect inside the existing home page, not a second route, because it is decorative and the educational content must remain server-rendered.
 - Keep haptic feedback as optional browser vibration with visual pressed states, because many iOS and desktop browsers do not support vibration.
+- Keep shared site chrome in SiteLayout and detail content on distinct TanStack routes, because the home page should remain short while every section stays directly accessible.

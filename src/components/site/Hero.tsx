@@ -1,120 +1,46 @@
-import { BookOpen, CheckCircle2, Phone, Rocket } from "lucide-react";
+import { BookOpen, Rocket, ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 import { BUSINESS } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
-import { useTilt3D } from "@/hooks/use-tilt";
 import { useLeadDialog } from "./LeadDialog";
 import { Hero3D } from "./Hero3D";
 
-const POINTS = [
-  "Nifty & BankNifty price action",
-  "Risk management and trading psychology",
-  "Classroom mentorship during market hours",
-];
-
 export function Hero() {
   const { open } = useLeadDialog();
-  const tilt = useTilt3D();
 
   return (
-    <section id="top" className="relative isolate overflow-hidden py-12 md:py-20">
+    <section id="top" className="relative isolate overflow-hidden py-12 sm:py-16 lg:py-20">
       <Hero3D />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <div className="space-y-6 lg:col-span-7">
-          <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">
-            Stock market training in Vellore — Tamil & English
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl space-y-5">
+          <p className="inline-flex items-center border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+            Stock market education · Vellore & online
           </p>
 
-          <h1 className="text-3xl font-black leading-tight sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
             Trading Zone Vellore
           </h1>
 
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Learn price action and options trading with a structured method. Classroom mentorship in {BUSINESS.addressShort} plus online live
-            training, taught by <strong className="text-foreground">{BUSINESS.founder}</strong>,
-            founder of {BUSINESS.name} and the {BUSINESS.youtubeChannelName} YouTube
-            channel.
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Learn price action, options and risk management with {BUSINESS.founder}. Classroom learning in {BUSINESS.addressShort} and online sessions in Tamil and English.
           </p>
 
-          <ul className="flex flex-wrap gap-3 text-xs font-semibold">
-            {POINTS.map((point) => (
-              <li
-                key={point}
-                className="surface-panel flex items-center gap-2 rounded-lg px-3.5 py-2"
-              >
-                <CheckCircle2 className="size-4 text-primary" aria-hidden />
-                {point}
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+          <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
+            <Button asChild size="lg"><Link to="/courses">Explore courses <ArrowUpRight aria-hidden /></Link></Button>
             <Button size="lg" onClick={() => open("masterclass")}>
               <Rocket className="size-4" aria-hidden />
-              Request a free masterclass seat
+              Request a masterclass seat
             </Button>
-            <Button size="lg" variant="outline" onClick={() => open("ebook")}>
+            <Button size="lg" variant="ghost" onClick={() => open("ebook")}>
               <BookOpen className="size-4" aria-hidden />
-              Request the free trading guide
+              Request the guide
             </Button>
           </div>
 
-          <p className="text-xs text-muted-foreground">
-            Trading and investing carry a real risk of loss. We teach a method —
-            we do not promise profits, and we are not SEBI-registered investment
-            advisers.
+          <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
+            Trading involves risk of loss. Educational training only; no profit promises or SEBI-registered investment advice.
           </p>
-        </div>
-
-        <div className="lg:col-span-5">
-          <div ref={tilt.ref} style={tilt.style} onMouseMove={tilt.onMouseMove} onMouseLeave={tilt.onMouseLeave} className="surface-panel glow-shadow space-y-5 rounded-lg p-6">
-            <div className="flex items-center justify-between border-b border-border pb-4">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-primary">
-                Academy at a glance
-              </span>
-            </div>
-
-            <dl className="space-y-3 text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted-foreground">Classroom</dt>
-                <dd className="text-right font-semibold">{BUSINESS.addressShort}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted-foreground">Languages</dt>
-                <dd className="text-right font-semibold">Tamil & English</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted-foreground">Mentor</dt>
-                <dd className="text-right font-semibold text-primary">
-                  {BUSINESS.founder}
-                </dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted-foreground">YouTube</dt>
-                <dd className="text-right">
-                  <a
-                    href={BUSINESS.youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-brand-video hover:underline"
-                  >
-                    {BUSINESS.youtubeChannelName}
-                  </a>
-                </dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted-foreground">Office hours</dt>
-                <dd className="text-right font-semibold">{BUSINESS.hours}</dd>
-              </div>
-            </dl>
-
-            <Button asChild variant="secondary" className="w-full">
-              <a href={`tel:${BUSINESS.phone}`}>
-                <Phone className="size-4" aria-hidden />
-                Call admissions: {BUSINESS.phoneDisplay}
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>

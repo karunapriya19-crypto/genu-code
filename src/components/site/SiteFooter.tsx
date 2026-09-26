@@ -1,20 +1,13 @@
 import { BUSINESS } from "@/lib/site-data";
-
-const LINKS = [
-  { href: "#mentor", label: "Mentor" },
-  { href: "#youtube", label: "YouTube" },
-  { href: "#courses", label: "Courses" },
-  { href: "#simulator", label: "Simulator" },
-  { href: "#calculators", label: "Calculators" },
-  { href: "#contact", label: "Contact" },
-];
+import { SITE_LINKS } from "@/lib/site-navigation";
+import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background py-10 text-xs text-muted-foreground">
       <div className="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <a href="#top" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <span className="brand-gradient flex size-10 items-center justify-center rounded-lg text-sm font-black text-primary-foreground">
               TZ
             </span>
@@ -22,13 +15,13 @@ export function SiteFooter() {
               <strong className="block text-sm text-foreground">{BUSINESS.name}</strong>
               <span>{BUSINESS.founder} · {BUSINESS.youtubeChannelName}</span>
             </span>
-          </a>
+          </Link>
 
           <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-5 gap-y-3">
-            {LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="font-medium hover:text-primary">
+            {SITE_LINKS.map((link) => (
+              <Link key={link.to} to={link.to} className="font-medium hover:text-primary">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
