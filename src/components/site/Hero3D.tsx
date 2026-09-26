@@ -16,6 +16,7 @@ export function Hero3D() {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    const sceneContainer = container;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -140,7 +141,7 @@ export function Hero3D() {
     let targetY = 0;
     function onPointerMove(e: PointerEvent) {
       if (e.pointerType !== "mouse") return;
-      const rect = container.getBoundingClientRect();
+      const rect = sceneContainer.getBoundingClientRect();
       targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 0.7;
       targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 0.7;
     }
@@ -208,7 +209,7 @@ export function Hero3D() {
   return (
     <div
       ref={containerRef}
-      className="pointer-events-none absolute inset-0 z-0 opacity-70 md:opacity-95"
+      className="pointer-events-none absolute inset-0 z-0 opacity-[0.12] md:opacity-40"
       aria-hidden="true"
     />
   );
