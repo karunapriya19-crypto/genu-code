@@ -41,7 +41,6 @@ export function Contact() {
             </ContactRow>
             <ContactRow icon={Youtube} title="YouTube">
               <a
-                id="youtube"
                 className="font-bold text-brand-video hover:underline"
                 href={BUSINESS.youtubeUrl}
                 target="_blank"

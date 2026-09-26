@@ -2,7 +2,9 @@ import { BookOpen, CheckCircle2, Phone, Rocket } from "lucide-react";
 
 import { BUSINESS } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
+import { useTilt3D } from "@/hooks/use-tilt";
 import { useLeadDialog } from "./LeadDialog";
+import { Hero3D } from "./Hero3D";
 
 const POINTS = [
   "Nifty & BankNifty price action",
@@ -12,9 +14,11 @@ const POINTS = [
 
 export function Hero() {
   const { open } = useLeadDialog();
+  const tilt = useTilt3D();
 
   return (
-    <section id="top" className="relative overflow-hidden py-16 md:py-24">
+    <section id="top" className="relative isolate overflow-hidden py-12 md:py-20">
+      <Hero3D />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="space-y-6 lg:col-span-7">
           <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">
@@ -22,12 +26,11 @@ export function Hero() {
           </p>
 
           <h1 className="text-3xl font-black leading-tight sm:text-5xl lg:text-6xl">
-            Learn price action and options trading{" "}
-            <span className="brand-text">with a structured method</span>
+            Trading Zone Vellore
           </h1>
 
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Classroom mentorship in {BUSINESS.addressShort} plus online live
+            Learn price action and options trading with a structured method. Classroom mentorship in {BUSINESS.addressShort} plus online live
             training, taught by <strong className="text-foreground">{BUSINESS.founder}</strong>,
             founder of {BUSINESS.name} and the {BUSINESS.youtubeChannelName} YouTube
             channel.
@@ -64,7 +67,7 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="surface-panel glow-shadow space-y-5 rounded-2xl p-6">
+          <div ref={tilt.ref} style={tilt.style} onMouseMove={tilt.onMouseMove} onMouseLeave={tilt.onMouseLeave} className="surface-panel glow-shadow space-y-5 rounded-lg p-6">
             <div className="flex items-center justify-between border-b border-border pb-4">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-primary">
                 Academy at a glance

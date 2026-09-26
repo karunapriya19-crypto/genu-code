@@ -2,6 +2,7 @@ import { BUSINESS } from "@/lib/site-data";
 
 const LINKS = [
   { href: "#mentor", label: "Mentor" },
+  { href: "#youtube", label: "YouTube" },
   { href: "#courses", label: "Courses" },
   { href: "#simulator", label: "Simulator" },
   { href: "#calculators", label: "Calculators" },

@@ -73,7 +73,7 @@ export function SiteHeader() {
           aria-label={openMenu ? "Close menu" : "Open menu"}
           className="flex size-11 items-center justify-center rounded-lg text-foreground md:hidden"
         >
-          {openMenu ? <Menu className="size-6" /> : <Menu className="size-6" />}
+          {openMenu ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
       </div>
 
