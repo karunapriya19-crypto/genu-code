@@ -177,4 +177,4 @@ export const COURSE_FILTERS = [
  * (e.g. dQw4w9WgXcQ, kJQP7kiw5Fk), so the gallery ships empty and links to the
  * channel instead of showing videos that may not exist.
  */
-export const YOUTUBE_VIDEOS: { id: string; title: string }[] = [];
+export const YOUTUBE_VIDEOS: { id: string; title: string; views?: number }[] = [];

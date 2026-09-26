@@ -44,20 +44,21 @@ export function Courses() {
           {COURSE_FILTERS.map((option) => {
             const active = filter === option.value;
             return (
-              <button
+              <Button
                 key={option.value}
                 role="tab"
                 aria-selected={active}
                 type="button"
                 onClick={() => setFilter(option.value)}
-                className={`rounded-lg px-4 py-2 text-xs font-semibold transition-colors ${
+                variant={active ? "default" : "secondary"}
+                className={`min-h-10 px-4 text-xs font-semibold ${
                   active
-                    ? "bg-primary text-primary-foreground"
-                    : "surface-panel text-muted-foreground hover:text-foreground"
+                    ? ""
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {option.label}
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -66,8 +67,9 @@ export function Courses() {
           {visible.map((course) => (
             <article
               key={course.id}
-              className="surface-panel flex flex-col justify-between rounded-2xl p-6"
+              className="surface-panel group relative flex flex-col justify-between overflow-hidden rounded-lg p-6 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10"
             >
+              <span className="brand-gradient absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" aria-hidden />
               <div>
                 <div className="mb-4 flex items-center justify-between gap-2">
                   <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">

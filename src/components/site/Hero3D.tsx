@@ -30,7 +30,12 @@ export function Hero3D() {
     );
     camera.position.set(0, 0, 9.5);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "low-power" });
+    } catch {
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
@@ -134,11 +139,12 @@ export function Hero3D() {
     let targetX = 0;
     let targetY = 0;
     function onPointerMove(e: PointerEvent) {
-      const rect = container!.getBoundingClientRect();
+      if (e.pointerType !== "mouse") return;
+      const rect = container.getBoundingClientRect();
       targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 0.7;
       targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 0.7;
     }
-    window.addEventListener("pointermove", onPointerMove);
+    if (!prefersReducedMotion) window.addEventListener("pointermove", onPointerMove);
 
     function onResize() {
       if (!container) return;
@@ -202,11 +208,7 @@ export function Hero3D() {
   return (
     <div
       ref={containerRef}
-      className="pointer-events-none absolute inset-0 -z-10 opacity-95"
-      style={{
-        background:
-          "radial-gradient(ellipse 60% 50% at 70% 40%, color-mix(in oklab, var(--violet) 18%, transparent) 0%, transparent 70%)",
-      }}
+      className="pointer-events-none absolute inset-0 z-0 opacity-70 md:opacity-95"
       aria-hidden="true"
     />
   );

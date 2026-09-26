@@ -17,6 +17,7 @@ export function useTilt3D(maxTiltDeg = 8) {
   function onMouseMove(e: MouseEvent<HTMLDivElement>) {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce), (hover: none)").matches) return;
     const rect = el.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;

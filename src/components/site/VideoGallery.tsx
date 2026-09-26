@@ -24,8 +24,7 @@ export function VideoGallery() {
             Watch on YouTube
           </h2>
           <p className="text-sm text-muted-foreground">
-            The channel&apos;s most-watched videos, embedded directly — play them
-            without leaving this page.
+            Explore learning videos from the academy. Only confirmed videos are embedded here.
           </p>
         </div>
 
@@ -58,11 +57,7 @@ export function VideoGallery() {
           <div className="surface-panel mx-auto max-w-xl rounded-2xl p-8 text-center">
             <PlayCircle className="mx-auto mb-3 size-8 text-brand-video" aria-hidden />
             <p className="text-sm text-muted-foreground">
-              No videos are embedded yet — {BUSINESS.youtubeChannelName}&apos;s real
-              video IDs haven&apos;t been confirmed. Add them to{" "}
-              <code className="text-foreground">YOUTUBE_VIDEOS</code> in{" "}
-              <code className="text-foreground">src/lib/site-data.ts</code> and they&apos;ll
-              appear here automatically, sorted by views.
+              No videos are embedded yet because the channel and video links have not been confirmed.
             </p>
           </div>
         )}
@@ -75,7 +70,7 @@ export function VideoGallery() {
             className="inline-flex items-center gap-2 rounded-full border border-brand-video/40 bg-brand-video/10 px-4 py-2 text-xs font-semibold text-brand-video hover:bg-brand-video/20"
           >
             <Youtube className="size-4" aria-hidden />
-            Subscribe to {BUSINESS.youtubeChannelName}
+              Open {BUSINESS.youtubeChannelName} on YouTube
           </a>
         </div>
       </div>

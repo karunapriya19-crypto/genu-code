@@ -11,6 +11,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Testimonials } from "@/components/site/Testimonials";
 import { TickerBar } from "@/components/site/TickerBar";
+import { VideoGallery } from "@/components/site/VideoGallery";
+import { TouchFeedback } from "@/components/site/TouchFeedback";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,11 +39,13 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <LeadDialogProvider>
+      <TouchFeedback />
       <SiteHeader />
       <main>
         <TickerBar />
         <Hero />
         <Mentor />
+        <VideoGallery />
         <Courses />
         <ChartSimulator />
         <Calculators />
