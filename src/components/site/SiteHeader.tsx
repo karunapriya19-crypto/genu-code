@@ -1,18 +1,11 @@
 import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 import { BUSINESS, whatsappLink } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
+import { SITE_LINKS } from "@/lib/site-navigation";
 import { useLeadDialog } from "./LeadDialog";
-
-const NAV = [
-  { href: "#mentor", label: "Mentor" },
-  { href: "#courses", label: "Courses" },
-  { href: "#simulator", label: "Chart simulator" },
-  { href: "#youtube", label: "YouTube" },
-  { href: "#calculators", label: "Calculators" },
-  { href: "#contact", label: "Contact" },
-];
 
 export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -21,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-surface-strong/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <span
             className="brand-gradient flex size-11 items-center justify-center rounded-xl text-lg font-black text-primary-foreground"
             aria-hidden
@@ -36,21 +29,22 @@ export function SiteHeader() {
               {BUSINESS.tagline}
             </span>
           </span>
-        </a>
+        </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-7 text-sm md:flex">
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+        <nav aria-label="Main" className="hidden items-center gap-5 text-sm lg:flex">
+          {SITE_LINKS.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              activeProps={{ className: "text-primary" }}
               className="text-muted-foreground transition-colors hover:text-primary"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <Button asChild variant="outline" size="sm">
             <a
               href={`tel:${BUSINESS.phone}`}
@@ -71,7 +65,7 @@ export function SiteHeader() {
           aria-expanded={openMenu}
           aria-controls="mobile-menu"
           aria-label={openMenu ? "Close menu" : "Open menu"}
-          className="flex size-11 items-center justify-center rounded-lg text-foreground md:hidden"
+          className="flex size-11 items-center justify-center rounded-lg text-foreground lg:hidden"
         >
           {openMenu ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
@@ -80,7 +74,7 @@ export function SiteHeader() {
       {openMenu && (
         <div
           id="mobile-menu"
-          className="border-t border-border bg-surface-strong px-4 pb-6 pt-2 md:hidden"
+          className="border-t border-border bg-surface-strong px-4 pb-6 pt-2 lg:hidden"
         >
           <div className="flex justify-end">
             <button
@@ -93,15 +87,15 @@ export function SiteHeader() {
             </button>
           </div>
           <nav aria-label="Mobile" className="flex flex-col">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+            {SITE_LINKS.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
                 onClick={() => setOpenMenu(false)}
                 className="py-3 text-sm font-medium text-muted-foreground hover:text-primary"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
