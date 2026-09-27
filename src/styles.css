@@ -141,6 +141,17 @@
   box-shadow: inset 0 1px 0 color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
+@utility page-intro-glass {
+  background: linear-gradient(115deg, color-mix(in oklab, var(--surface) 66%, transparent), color-mix(in oklab, var(--surface-strong) 88%, transparent) 62%),
+    linear-gradient(160deg, color-mix(in oklab, var(--primary) 9%, transparent), transparent 48%);
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--foreground) 5%, transparent);
+}
+
+@utility page-intro-line {
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--primary) 50%, transparent), color-mix(in oklab, var(--chart-2) 40%, transparent), transparent);
+}
+
 @utility brand-gradient {
   background-image: var(--gradient-brand);
   background-size: 200% auto;
