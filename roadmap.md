@@ -1,3 +1,3 @@
-- [ ] Replace the long home page with a concise introduction and direct page choices.
-- [ ] Move existing sections to dedicated pages and update navigation, footer, and floating shortcuts.
-- [ ] Check desktop/mobile layouts and navigation interactions.
+- [x] Replace the long home page with a concise introduction and direct page choices.
+- [x] Move existing sections to dedicated pages and update navigation, footer, and floating shortcuts.
+- [x] Check desktop/mobile layouts and navigation interactions.
