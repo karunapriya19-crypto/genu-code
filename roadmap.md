@@ -1,4 +1,4 @@
 - [x] Replace the long home page with a concise introduction and direct page choices.
 - [x] Move existing sections to dedicated pages and update navigation, footer, and floating shortcuts.
 - [x] Check desktop/mobile layouts and navigation interactions.
-- [ ] Polish the shared detail-page introduction in the chosen glass-glow direction and verify mobile/desktop.
+- [x] Polish the shared detail-page introduction in the chosen glass-glow direction and verify mobile/desktop.
