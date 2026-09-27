@@ -42,11 +42,11 @@ function Index() {
             <div><p className="mb-2 font-mono text-xs font-bold uppercase text-primary">Explore the academy</p><h2 id="explore-heading" className="text-2xl font-black sm:text-3xl">Where would you like to start?</h2></div>
             <p className="max-w-sm text-sm text-muted-foreground">Go straight to what matters to you.</p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-5">
             {SITE_LINKS.map(({ to, label, detail, icon: Icon }, index) => (
-              <Link to={to} key={to} className="group flex min-h-40 flex-col justify-between rounded-md border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/60 hover:bg-accent focus-visible:border-primary">
-                <div className="flex items-start justify-between gap-2"><span className="flex size-10 items-center justify-center rounded-md bg-primary/10 text-primary"><Icon className="size-5" aria-hidden /></span><span className="font-mono text-xs text-muted-foreground">0{index + 1}</span></div>
-                <div><h3 className="mt-5 text-lg font-bold">{label}</h3><p className="mt-1 text-xs text-muted-foreground">{detail}</p></div>
+              <Link to={to} key={to} className="group flex min-h-36 flex-col justify-between rounded-md border border-border bg-surface p-3.5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/60 hover:bg-accent focus-visible:border-primary sm:min-h-40 sm:p-5">
+                <div className="flex items-start justify-between gap-2"><span className="flex size-9 items-center justify-center rounded-md bg-primary/10 text-primary sm:size-10"><Icon className="size-5" aria-hidden /></span><span className="font-mono text-xs text-muted-foreground">0{index + 1}</span></div>
+                <div><h3 className="mt-4 text-base font-bold sm:text-lg">{label}</h3><p className="mt-1 text-xs text-muted-foreground">{detail}</p></div>
                 <ArrowUpRight className="mt-3 size-4 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
               </Link>
             ))}
