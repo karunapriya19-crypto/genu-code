@@ -1,10 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 
+import { Calculators } from "@/components/site/Calculators";
+import { ChartSimulator } from "@/components/site/ChartSimulator";
+import { Contact } from "@/components/site/Contact";
+import { Courses } from "@/components/site/Courses";
 import { Hero } from "@/components/site/Hero";
+import { Mentor } from "@/components/site/Mentor";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { Testimonials } from "@/components/site/Testimonials";
 import { TickerBar } from "@/components/site/TickerBar";
+import { VideoGallery } from "@/components/site/VideoGallery";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/site-data";
 import { SITE_LINKS } from "@/lib/site-navigation";
@@ -32,6 +38,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const anchors: Record<(typeof SITE_LINKS)[number]["to"], string> = {
+    "/courses": "#courses",
+    "/tools": "#tools",
+    "/mentor": "#mentor",
+    "/videos": "#youtube",
+    "/contact": "#contact",
+  };
+
   return (
     <SiteLayout>
       <TickerBar />
@@ -44,21 +58,52 @@ function Index() {
           </div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-5">
             {SITE_LINKS.map(({ to, label, detail, icon: Icon }, index) => (
-              <Link to={to} key={to} className="group flex min-h-36 flex-col justify-between rounded-md border border-border bg-surface p-3.5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/60 hover:bg-accent focus-visible:border-primary sm:min-h-40 sm:p-5">
+              <a href={anchors[to]} key={to} className="group flex min-h-36 flex-col justify-between rounded-md border border-border bg-surface p-3.5 transition-all duration-200 hover:-translate-y-1 hover:border-primary/60 hover:bg-accent focus-visible:border-primary sm:min-h-40 sm:p-5">
                 <div className="flex items-start justify-between gap-2"><span className="flex size-9 items-center justify-center rounded-md bg-primary/10 text-primary sm:size-10"><Icon className="size-5" aria-hidden /></span><span className="font-mono text-xs text-muted-foreground">0{index + 1}</span></div>
                 <div><h3 className="mt-4 text-base font-bold sm:text-lg">{label}</h3><p className="mt-1 text-xs text-muted-foreground">{detail}</p></div>
                 <ArrowUpRight className="mt-3 size-4 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
       </section>
+      <div id="mentor">
+        <SectionHeading eyebrow="Our approach" title="Meet the mentor" description="Get to know the person behind the teaching and how we handle student feedback responsibly." />
+        <Mentor />
+        <Testimonials />
+      </div>
+      <VideoGallery />
+      <div id="courses">
+        <SectionHeading eyebrow="Learn with us" title="Choose your learning path" description="Explore the course outlines, compare the focus of each program, and ask us for current fees and batch dates." />
+        <Courses />
+      </div>
+      <div id="tools">
+        <SectionHeading eyebrow="Practice & plan" title="Learn by doing" description="Explore educational chart scenarios and test how different risk choices affect illustrative outcomes. These tools do not use live prices." />
+        <ChartSimulator />
+        <Calculators />
+      </div>
+      <div id="contact">
+        <SectionHeading eyebrow="Get in touch" title="Let's talk about your next step" description="Questions about a program or the next batch? Reach the academy directly, and call before travelling to the classroom." />
+        <Contact />
+      </div>
       <section className="py-12 sm:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div><p className="mb-2 font-mono text-xs font-bold uppercase text-primary">Questions?</p><h2 className="text-2xl font-black sm:text-3xl">Talk to a real person.</h2><p className="mt-2 text-sm text-muted-foreground">Ask about courses and current batches before deciding.</p></div>
-          <div className="flex flex-wrap gap-3"><Button asChild><a href={whatsappLink(`Hello ${BUSINESS.name}, I would like details about your courses.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden /> WhatsApp the academy</a></Button><Button asChild variant="outline"><Link to="/contact">Contact details <ArrowUpRight aria-hidden /></Link></Button></div>
+          <div className="flex flex-wrap gap-3"><Button asChild><a href={whatsappLink(`Hello ${BUSINESS.name}, I would like details about your courses.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden /> WhatsApp the academy</a></Button></div>
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+  return (
+    <div className="border-t border-border px-4 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="font-mono text-xs font-bold uppercase text-primary">{eyebrow}</p>
+        <h2 className="mt-2 text-3xl font-black">{title}</h2>
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">{description}</p>
+      </div>
+    </div>
   );
 }
