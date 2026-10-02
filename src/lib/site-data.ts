@@ -170,11 +170,12 @@ export const COURSE_FILTERS = [
   { value: "swing", label: "Swing & Investing" },
 ] as const;
 
-/**
- * YouTube videos.
- * Only entries the owner confirms belong to the Nifty 9am Tamil channel should
- * be listed here. The draft site contained placeholder / unrelated video IDs
- * (e.g. dQw4w9WgXcQ, kJQP7kiw5Fk), so the gallery ships empty and links to the
- * channel instead of showing videos that may not exist.
- */
-export const YOUTUBE_VIDEOS: { id: string; title: string; views?: number }[] = [];
+/** Owner-supplied video IDs; YouTube oEmbed confirmed all six belong to @nifty9amtamil. */
+export const YOUTUBE_VIDEOS: { id: string; title: string }[] = [
+  { id: "A8sZCmpoFYs", title: "Nifty 9am Tamil · Video 1" },
+  { id: "eK_LyvFQx6k", title: "Nifty 9am Tamil · Video 2" },
+  { id: "KzxAgGfEdEk", title: "Nifty 9am Tamil · Video 3" },
+  { id: "3XNolzVoSp0", title: "Nifty 9am Tamil · Video 4" },
+  { id: "DGtxbQkTXPw", title: "Nifty 9am Tamil · Video 5" },
+  { id: "giYkrClqpkE", title: "Nifty 9am Tamil · Video 6" },
+];
