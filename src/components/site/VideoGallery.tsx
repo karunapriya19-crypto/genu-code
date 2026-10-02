@@ -1,18 +1,9 @@
-import { PlayCircle, Youtube } from "lucide-react";
+import { Youtube } from "lucide-react";
 
 import { BUSINESS, YOUTUBE_VIDEOS } from "@/lib/site-data";
 
-/**
- * Plays the channel's most-watched videos directly on the page (embedded via
- * youtube-nocookie.com). Sorts by `views` descending — only videos the owner
- * has actually confirmed belong to the channel should ever be added to
- * YOUTUBE_VIDEOS in site-data.ts. See the comment there for the exact format.
- */
+/** Embeds owner-supplied videos in their supplied order; view counts are unknown. */
 export function VideoGallery() {
-  const topVideos = [...YOUTUBE_VIDEOS]
-    .sort((a, b) => (b.views ?? 0) - (a.views ?? 0))
-    .slice(0, 6);
-
   return (
     <section id="youtube" className="py-20" aria-labelledby="videos-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -24,14 +15,13 @@ export function VideoGallery() {
             Watch on YouTube
           </h2>
           <p className="text-sm text-muted-foreground">
-            Explore learning videos from the academy. Only confirmed videos are embedded here.
+            Nifty 9am Tamil — play directly below.
           </p>
         </div>
 
-        {topVideos.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {topVideos.map((video) => (
-              <div key={video.id} className="surface-panel overflow-hidden rounded-2xl">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {YOUTUBE_VIDEOS.map((video) => (
+              <div key={video.id} className="surface-panel overflow-hidden rounded-lg">
                 <div className="aspect-video w-full">
                   <iframe
                     className="size-full"
@@ -42,25 +32,9 @@ export function VideoGallery() {
                     allowFullScreen
                   />
                 </div>
-                <div className="p-4">
-                  <p className="line-clamp-2 text-sm font-semibold">{video.title}</p>
-                  {typeof video.views === "number" && (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {video.views.toLocaleString("en-IN")} views
-                    </p>
-                  )}
-                </div>
               </div>
             ))}
-          </div>
-        ) : (
-          <div className="surface-panel mx-auto max-w-xl rounded-2xl p-8 text-center">
-            <PlayCircle className="mx-auto mb-3 size-8 text-brand-video" aria-hidden />
-            <p className="text-sm text-muted-foreground">
-              No videos are embedded yet because the channel and video links have not been confirmed.
-            </p>
-          </div>
-        )}
+        </div>
 
         <div className="mt-8 text-center">
           <a
