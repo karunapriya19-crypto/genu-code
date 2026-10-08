@@ -3,3 +3,5 @@
 - [x] Check desktop/mobile layouts and navigation interactions.
 - [x] Polish the shared detail-page introduction in the chosen glass-glow direction and verify mobile/desktop.
 - [x] Add the six owner-supplied Nifty 9am Tamil videos to the Videos page and verify their channel attribution.
+- [ ] Add secure screenshot-based AI chart explanations with educational-only safeguards.
+- [ ] Test image validation, educational restrictions, and the live explanation flow.
