@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Calculators } from "@/components/site/Calculators";
 import { ChartSimulator } from "@/components/site/ChartSimulator";
+import { ChartExplainer } from "@/components/site/ChartExplainer";
 import { PageIntro } from "@/components/site/PageIntro";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
@@ -16,5 +17,5 @@ export const Route = createFileRoute("/tools")({
 });
 
 function ToolsPage() {
-  return <SiteLayout><PageIntro eyebrow="Practice & plan" title="Learn by doing" description="Explore educational chart scenarios and test how different risk choices affect illustrative outcomes. These tools do not use live prices." /><ChartSimulator /><Calculators /></SiteLayout>;
+  return <SiteLayout><PageIntro eyebrow="Practice & plan" title="Learn by doing" description="Explore educational chart scenarios and test how different risk choices affect illustrative outcomes. These tools do not use live prices." /><ChartSimulator /><ChartExplainer /><Calculators /></SiteLayout>;
 }

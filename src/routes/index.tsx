@@ -3,6 +3,7 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 
 import { Calculators } from "@/components/site/Calculators";
 import { ChartSimulator } from "@/components/site/ChartSimulator";
+import { ChartExplainer } from "@/components/site/ChartExplainer";
 import { Contact } from "@/components/site/Contact";
 import { Courses } from "@/components/site/Courses";
 import { Hero } from "@/components/site/Hero";
@@ -80,6 +81,7 @@ function Index() {
       <div id="tools">
         <SectionHeading eyebrow="Practice & plan" title="Learn by doing" description="Explore educational chart scenarios and test how different risk choices affect illustrative outcomes. These tools do not use live prices." />
         <ChartSimulator />
+        <ChartExplainer />
         <Calculators />
       </div>
       <div id="contact">
