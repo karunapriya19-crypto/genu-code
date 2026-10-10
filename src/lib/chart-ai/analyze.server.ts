@@ -44,6 +44,7 @@ export async function analyzeChart(image: string, userId: string, request: Reque
   } catch (error) {
     if (request.signal.aborted) return fail("Explanation stopped.", 499);
     if (NoObjectGeneratedError.isInstance(error)) {
+      if (!error.text) return fail("The model could not produce an explanation for this screenshot.", 422);
       try {
         return { explanation: normalizeExplanation(JSON.parse(error.text)), error: null, status: 200 };
       } catch { return fail("No educational explanation could be safely produced for this image.", 422); }
