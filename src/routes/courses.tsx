@@ -6,7 +6,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/courses")({
   head: () => ({ meta: [
     { title: "Courses | Trading Zone Vellore" },
-    { name: "description", content: "Explore classroom and online stock market courses in Vellore, with syllabus details for options, price action, and swing trading." },
+    { name: "description", content: "Explore classroom and online trading programs in Vellore, with syllabus details for options, price action, and swing trading." },
     { property: "og:title", content: "Courses | Trading Zone Vellore" },
     { property: "og:description", content: "Browse the Trading Zone Vellore course outlines and ask about current batches." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },

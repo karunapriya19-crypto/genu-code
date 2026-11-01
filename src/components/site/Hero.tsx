@@ -15,7 +15,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-5">
           <p className="inline-flex items-center border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
-            Stock market education · Vellore & online
+            Trading academy · Vellore & online
           </p>
 
           <h1 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">

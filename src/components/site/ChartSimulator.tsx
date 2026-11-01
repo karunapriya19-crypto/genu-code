@@ -68,7 +68,7 @@ export function ChartSimulator() {
     const toY = (value: number) => height - ((value - min) / span) * height;
     const slot = width / candles.length;
 
-    ctx.strokeStyle = "rgba(255,255,255,0.06)";
+    ctx.strokeStyle = "rgba(15,23,42,0.08)";
     ctx.lineWidth = 1;
     for (let y = 0; y < height; y += 40) {
       ctx.beginPath();
@@ -80,8 +80,8 @@ export function ChartSimulator() {
     candles.forEach((c, i) => {
       const x = i * slot + slot / 2;
       const bull = c.close >= c.open;
-      ctx.strokeStyle = bull ? "#34d399" : "#f87171";
-      ctx.fillStyle = bull ? "#34d399" : "#f87171";
+      ctx.strokeStyle = bull ? "#059669" : "#dc2626";
+      ctx.fillStyle = bull ? "#059669" : "#dc2626";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(x, toY(c.high));
@@ -108,8 +108,8 @@ export function ChartSimulator() {
       ctx.stroke();
     };
 
-    if (showFast) drawEma(20, "#34d399");
-    if (showSlow) drawEma(50, "#60a5fa");
+    if (showFast) drawEma(20, "#0e9aa7");
+    if (showSlow) drawEma(50, "#d4a017");
   }, [candles, showFast, showSlow]);
 
   useEffect(() => {

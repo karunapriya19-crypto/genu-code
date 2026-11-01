@@ -12,7 +12,7 @@ export function SiteHeader() {
   const { open } = useLeadDialog();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface-strong/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/90 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <span
@@ -37,7 +37,7 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeProps={{ className: "text-primary" }}
-              className="text-muted-foreground transition-colors hover:text-primary"
+              className="font-medium text-foreground/70 transition-colors hover:text-primary"
             >
               {item.label}
             </Link>
@@ -59,7 +59,9 @@ export function SiteHeader() {
           </Button>
         </div>
 
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           type="button"
           onClick={() => setOpenMenu((v) => !v)}
           aria-expanded={openMenu}
@@ -68,23 +70,25 @@ export function SiteHeader() {
           className="flex size-11 items-center justify-center rounded-lg text-foreground lg:hidden"
         >
           {openMenu ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        </Button>
       </div>
 
       {openMenu && (
         <div
           id="mobile-menu"
-          className="border-t border-border bg-surface-strong px-4 pb-6 pt-2 lg:hidden"
+          className="border-t border-border bg-background px-4 pb-6 pt-2 lg:hidden"
         >
           <div className="flex justify-end">
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               type="button"
               onClick={() => setOpenMenu(false)}
               aria-label="Close menu"
               className="flex size-10 items-center justify-center rounded-lg text-muted-foreground"
             >
               <X className="size-5" />
-            </button>
+            </Button>
           </div>
           <nav aria-label="Mobile" className="flex flex-col">
             {SITE_LINKS.map((item) => (
@@ -124,3 +128,4 @@ export function SiteHeader() {
     </header>
   );
 }
+

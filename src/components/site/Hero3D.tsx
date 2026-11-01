@@ -48,7 +48,7 @@ export function Hero3D() {
     // an atmospheric glow behind everything else.
     const haloGeo = new THREE.IcosahedronGeometry(5.2, 2);
     const haloMat = new THREE.MeshBasicMaterial({
-      color: 0xfbbf24,
+      color: 0xd4a017,
       transparent: true,
       opacity: 0.05,
       side: THREE.BackSide,
@@ -61,7 +61,7 @@ export function Hero3D() {
     // Emerald wireframe core
     const coreGeo = new THREE.IcosahedronGeometry(2.4, 1);
     const coreMat = new THREE.MeshBasicMaterial({
-      color: 0x34d399,
+      color: 0x0e9aa7,
       wireframe: true,
       transparent: true,
       opacity: 0.6,
@@ -72,7 +72,7 @@ export function Hero3D() {
     // Gold inner glow shell
     const glowGeo = new THREE.IcosahedronGeometry(2.05, 2);
     const glowMat = new THREE.MeshBasicMaterial({
-      color: 0xfbbf24,
+      color: 0xd4a017,
       wireframe: true,
       transparent: true,
       opacity: 0.18,
@@ -83,7 +83,7 @@ export function Hero3D() {
     // Gold orbital ring
     const ringGoldGeo = new THREE.TorusGeometry(3.6, 0.025, 12, 120);
     const ringGoldMat = new THREE.MeshBasicMaterial({
-      color: 0xfbbf24,
+      color: 0xd4a017,
       transparent: true,
       opacity: 0.5,
     });
@@ -94,7 +94,7 @@ export function Hero3D() {
     // Azure orbital ring, different tilt and speed
     const ringAzureGeo = new THREE.TorusGeometry(4.2, 0.02, 12, 120);
     const ringAzureMat = new THREE.MeshBasicMaterial({
-      color: 0x60a5fa,
+      color: 0x0ea5e9,
       transparent: true,
       opacity: 0.35,
     });
@@ -108,9 +108,9 @@ export function Hero3D() {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const palette = [
-      new THREE.Color(0x34d399),
-      new THREE.Color(0x60a5fa),
-      new THREE.Color(0xfbbf24),
+      new THREE.Color(0x0e9aa7),
+      new THREE.Color(0x0ea5e9),
+      new THREE.Color(0xd4a017),
     ];
     for (let i = 0; i < particleCount; i += 1) {
       const r = 3.3 + Math.random() * 2.4;
