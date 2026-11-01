@@ -13,7 +13,7 @@
 
 export const BUSINESS = {
   name: "Trading Zone Vellore",
-  tagline: "Stock Market Training Academy",
+  tagline: "Trading Training Academy",
   founder: "D. Srinivasan",
   founderRole: "Founder & Lead Mentor",
   phone: "+917540010050",
@@ -43,6 +43,8 @@ export type Course = {
   duration: string;
   summary: string;
   highlights: string[];
+  /** What a student should be able to do after the course. Derived from the syllabus, never a results claim. */
+  outcomes: string[];
   /** Fees are not published until the owner confirms them. */
   fee: null | string;
   syllabus: { module: string; detail: string }[];
@@ -63,6 +65,12 @@ export const COURSES: Course[] = [
       "Scalping and momentum setup models",
       "Risk-defined option hedging",
       "Vellore classroom + online access",
+    ],
+    outcomes: [
+      "Explain how option premiums behave, including expiry effects and the Greeks that matter intraday",
+      "Read open-interest build-up and unwinding, and choose strikes by liquidity and delta",
+      "Follow an entry checklist with written stops, and keep a trade journal",
+      "Size positions and apply daily loss limits",
     ],
     fee: null,
     syllabus: [
@@ -103,6 +111,12 @@ export const COURSES: Course[] = [
       "Multi-timeframe confluence",
       "Mentorship by D. Srinivasan",
     ],
+    outcomes: [
+      "Identify trends, ranges and break of structure",
+      "Mark and grade supply and demand zones objectively",
+      "Recognise stop hunts and false breakouts before chasing a candle",
+      "Build a daily plan from higher-timeframe bias down to execution",
+    ],
     fee: null,
     syllabus: [
       {
@@ -142,6 +156,11 @@ export const COURSES: Course[] = [
       "Fundamental filters plus chart timing",
       "Community access for enrolled students",
     ],
+    outcomes: [
+      "Build a weekly watchlist from sector strength and relative performance",
+      "Plan swing entries, stop distance and scaling out on strength",
+      "Limit how much of a portfolio any single idea can risk",
+    ],
     fee: null,
     syllabus: [
       {
@@ -179,3 +198,4 @@ export const YOUTUBE_VIDEOS: { id: string; title: string }[] = [
   { id: "DGtxbQkTXPw", title: "Nifty 9am Tamil · Video 5" },
   { id: "giYkrClqpkE", title: "Nifty 9am Tamil · Video 6" },
 ];
+

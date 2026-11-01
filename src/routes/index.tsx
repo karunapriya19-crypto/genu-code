@@ -19,13 +19,13 @@ import { SITE_LINKS } from "@/lib/site-navigation";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Trading Zone Vellore | Stock Market Training Academy" },
+      { title: "Trading Zone Vellore | Trading Training Academy" },
       {
         name: "description",
         content:
-          "Stock market training in Vellore with classroom and online programs covering price action, options, swing trading, and risk management.",
+          "Trading training in Vellore with classroom and online programs covering price action, options, swing trading, and risk management.",
       },
-      { property: "og:title", content: "Trading Zone Vellore | Stock Market Training Academy" },
+      { property: "og:title", content: "Trading Zone Vellore | Trading Training Academy" },
       {
         property: "og:description",
         content:
