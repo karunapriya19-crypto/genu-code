@@ -14,3 +14,4 @@
 - Keep shared site chrome in SiteLayout and detail content on distinct TanStack routes, because the home page should remain short while every section stays directly accessible.
 - Keep chart screenshot explanations in a shared ChartExplainer on home and tools, backed by an authenticated server function and server-only AI Gateway helpers; short structured outputs allow safe final-result validation before display.
 - Do not persist chart uploads or explanations; use service-role-only durable AI gate and per-user quota tables to prevent replaying denied calls and uncontrolled spending.
+- Keep supplied course, mentor and contact images in their shared section components so both the home page and dedicated pages display the same assets.

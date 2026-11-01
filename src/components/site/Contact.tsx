@@ -3,6 +3,7 @@ import { Clock3, ExternalLink, MapPin, MessageCircle, Phone, Youtube } from "luc
 
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/site-data";
+import contactPicture from "@/assets/contact-no-map.jpg";
 
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS.address)}`;
 
@@ -73,9 +74,7 @@ export function Contact() {
 
         <div className="lg:col-span-7">
           <div className="surface-panel flex min-h-[380px] flex-col items-center justify-center rounded-2xl p-6 text-center sm:min-h-[430px]">
-            <span className="flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <MapPin className="size-8" aria-hidden />
-            </span>
+            <img src={contactPicture} alt="Trading Zone Vellore contact information with decorative Vellore scenery; exact map pin is unconfirmed" className="h-auto w-full rounded-lg" loading="lazy" />
             <h3 className="mt-5 text-xl font-black">Thottapalayam, Vellore</h3>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
               The academy supplied this postal address, but an exact Google Maps place pin has
