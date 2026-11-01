@@ -3,6 +3,8 @@ import { Clock, MessageCircle } from "lucide-react";
 
 import { BUSINESS, COURSES, COURSE_FILTERS, whatsappLink } from "@/lib/site-data";
 import type { Course } from "@/lib/site-data";
+import learnBanner from "@/assets/learn-simplified-banner.jpg.asset.json";
+import differentBanner from "@/assets/why-different-banner.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -23,6 +25,10 @@ export function Courses() {
   return (
     <section id="courses" className="py-20" aria-labelledby="courses-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 space-y-6">
+          <img src={learnBanner.url} alt="Trading Zone Vellore — learn to trade the simplified way" className="h-auto w-full rounded-lg" loading="lazy" />
+          <img src={differentBanner.url} alt="Why this course is different — trading with data science, developed by D. Srinivasan" className="h-auto w-full rounded-lg" loading="lazy" />
+        </div>
         <div className="mx-auto mb-10 max-w-3xl space-y-3 text-center">
           <p className="font-mono text-xs font-bold uppercase tracking-widest text-primary">
             Curriculum

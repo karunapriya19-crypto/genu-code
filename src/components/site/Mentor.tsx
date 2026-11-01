@@ -1,6 +1,7 @@
 import { Youtube } from "lucide-react";
 
 import { BUSINESS } from "@/lib/site-data";
+import founderPortrait from "@/assets/founder-srinivasan.jpg.asset.json";
 
 const PILLARS = [
   {
@@ -31,19 +32,10 @@ export function Mentor() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="lg:col-span-5">
           <div className="surface-panel mx-auto max-w-sm rounded-2xl p-4">
-            {/* No stock photo is used here. A stock image labelled as the founder
-                would mislead visitors; the owner must supply a real photograph. */}
-            <div className="flex aspect-[4/5] flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-border bg-muted/40 text-center">
-              <span
-                className="brand-gradient flex size-20 items-center justify-center rounded-full text-2xl font-black text-primary-foreground"
-                aria-hidden
-              >
-                DS
-              </span>
-              <p className="px-6 text-xs text-muted-foreground">
-                Photograph of {BUSINESS.founder} to be added by the academy.
-              </p>
-            </div>
+            <figure>
+              <img src={founderPortrait.url} alt={`AI-generated portrait of ${BUSINESS.founder}`} className="h-auto w-full rounded-xl" loading="lazy" />
+              <figcaption className="mt-2 text-center text-xs text-muted-foreground">AI-generated portrait</figcaption>
+            </figure>
             <div className="mt-4 rounded-xl border border-border bg-surface p-4">
               <h3 className="text-lg font-black">{BUSINESS.founder}</h3>
               <p className="text-xs font-medium text-primary">{BUSINESS.founderRole}</p>
