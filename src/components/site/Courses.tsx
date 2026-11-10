@@ -14,6 +14,7 @@ import type { Course } from "@/lib/site-data";
 import learnBanner from "@/assets/learn-simplified-banner.jpg.asset.json";
 import differentBanner from "@/assets/why-different-banner.jpg.asset.json";
 import { Button } from "@/components/ui/button";
+import { AboutAcademy } from "@/components/site/AboutAcademy";
 import {
   Dialog,
   DialogContent,
@@ -71,6 +72,8 @@ export function Courses() {
             className="h-auto w-full rounded-2xl border border-border shadow-lg shadow-primary/10"
           />
         </div>
+
+        <AboutAcademy />
 
         <div
           role="tablist"

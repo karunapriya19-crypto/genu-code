@@ -32,10 +32,7 @@ export function Mentor() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="lg:col-span-5">
           <div className="surface-panel mx-auto max-w-sm rounded-2xl p-4">
-            <figure>
-              <img src={founderPortrait.url} alt={`AI-generated portrait of ${BUSINESS.founder}`} className="h-auto w-full rounded-xl" loading="lazy" />
-              <figcaption className="mt-2 text-center text-xs text-muted-foreground">AI-generated portrait</figcaption>
-            </figure>
+            <img src={founderPortrait.url} alt={`Portrait of ${BUSINESS.founder}`} className="h-auto w-full rounded-xl" loading="lazy" />
             <div className="mt-4 rounded-xl border border-border bg-surface p-4">
               <h3 className="text-lg font-black">{BUSINESS.founder}</h3>
               <p className="text-xs font-medium text-primary">{BUSINESS.founderRole}</p>
@@ -54,6 +51,11 @@ export function Mentor() {
             Meet your mentor: <span className="brand-text">{BUSINESS.founder}</span>
           </h2>
           <p className="leading-relaxed text-muted-foreground">
+            Trading Zone Vellore is an educational initiative that helps young people and aspiring
+            traders understand the stock market, treat trading as a professional skill and make
+            informed financial decisions — with patience, discipline and risk management.
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {BUSINESS.founder} trains retail traders in Vellore and across Tamil Nadu
             to move away from tip-based, indicator-heavy trading towards a
             disciplined, rule-based approach to the Indian markets.
